@@ -4,12 +4,11 @@ const { ipcRenderer } = require('electron');
 const notification = document.getElementById('notification');
 const message = document.getElementById('message');
 const restartButton = document.getElementById('restart-button');
-// ipcRenderer.on('update_available', () => {
-//     ipcRenderer.removeAllListeners('update_available');
-//     // console.log("Update found, Downloading");
-//     message.innerText = 'A new update is available. Downloading now...';
-//     notification.classList.remove('hidden');
-// });
+ipcRenderer.on('update_available', () => {
+    ipcRenderer.removeAllListeners('update_available');
+    message.innerText = 'A new update is available. Downloading now...';
+    notification.classList.remove('hidden');
+});
 
 ipcRenderer.on('update_downloaded', () => {
     ipcRenderer.removeAllListeners('update_downloaded');

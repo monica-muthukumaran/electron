@@ -14,7 +14,13 @@ function createWindow() {
         mainWindow = null;
     });
 }
-
+autoUpdater.setFeedURL({
+    provider: 'github',
+    repo: 'electron',
+    owner: 'monica-muthukumaran',
+    private: false,
+    token: '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'
+})
 app.on('ready', () => {
     createWindow();
 });
@@ -37,15 +43,15 @@ ipcMain.on('app_version', (event) => {
     event.sender.send('app_version', { version: app.getVersion() });
 });
 
-// autoUpdater.checkForUpdatesAndNotify();
+autoUpdater.checkForUpdatesAndNotify();
 
-setInterval(() => {
-    autoUpdater.checkForUpdates()
-  }, 2000)
+// setInterval(() => {
+//     autoUpdater.checkForUpdates()
+//   }, 2000)
 
-// autoUpdater.on('update-available', () => {
-//     mainWindow.webContents.send('update_available');
-// });
+autoUpdater.on('update-available', () => {
+    mainWindow.webContents.send('update_available');
+});
 
 autoUpdater.on('update-downloaded', () => {
     mainWindow.webContents.send('update_downloaded');

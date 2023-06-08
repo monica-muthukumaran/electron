@@ -7,10 +7,9 @@
     "publish": [
       {
         "provider": "github",
-        "host": "infygithub.ad.infosys.com",
         "owner": "monica-muthukumaran",
-        "repo": "Electron",
-        "token": "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"
+        "repo": "electron",
+        "token": "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"
       }
     ],
     "win": {
@@ -25,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://infygithub.ad.infosys.com/monica-muthukumaran/Electron.git"
+    "url": "github.com/monica-muthukumaran/electron.git"
   },
   "author": "Monica Muthukumaran",
   "license": "MIT",
